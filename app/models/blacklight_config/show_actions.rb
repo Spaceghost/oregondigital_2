@@ -4,10 +4,19 @@ class BlacklightConfig
 
     def run
       add_edit_button
+      add_download_button
       remove_defaults
     end
 
     private
+
+    def add_download_button
+      configuration.show.document_actions[:download] = download_action
+    end
+
+    def download_action
+      Blacklight::Configuration::ToolConfig.new(:partial => "download_action")
+    end
 
     def add_edit_button
       configuration.show.document_actions[:edit_record] = edit_action

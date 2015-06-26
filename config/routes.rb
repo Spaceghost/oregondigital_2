@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   get '/admin', :to => 'admin#index', :as => "admin_index"
   resources :resource, :only => :show
+  resources :downloads
   mount HydraEditor::Engine => '/'
 
   get 'sets/:set_id', :to => "sets#index", :as => :sets_index
